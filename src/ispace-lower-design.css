@@ -963,3 +963,169 @@
     animation:none!important;
   }
 }
+/* ================= ABOUT / SECOND SECTION ================= */
+
+.ispace-home .ispace-about{
+  position:relative!important;
+  isolation:isolate;
+  min-height:100vh!important;
+  padding:150px 6vw 120px!important;
+  overflow:hidden!important;
+  color:#f5f2eb!important;
+  background:
+    radial-gradient(circle at 78% 22%,rgba(109,53,232,.18),transparent 30%),
+    radial-gradient(circle at 12% 82%,rgba(210,165,43,.07),transparent 25%),
+    linear-gradient(145deg,#08070d,#12101c 52%,#08070d)!important;
+}
+
+.ispace-home .ispace-about::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:70px 70px;
+  mask-image:linear-gradient(to bottom,black,transparent 92%);
+}
+
+.ispace-home .ispace-about::after{
+  content:"02";
+  position:absolute;
+  right:-2vw;
+  bottom:-5vw;
+  z-index:-1;
+  color:rgba(255,255,255,.025);
+  font-size:clamp(16rem,34vw,34rem);
+  font-weight:700;
+  letter-spacing:-.1em;
+  line-height:.7;
+}
+
+.ispace-home .ispace-about__grid{
+  position:absolute!important;
+  width:620px!important;
+  height:620px!important;
+  right:-300px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  border:1px solid rgba(109,53,232,.16)!important;
+  border-radius:50%!important;
+  box-shadow:
+    0 0 0 80px rgba(109,53,232,.025),
+    0 0 0 160px rgba(210,165,43,.012)!important;
+}
+
+.ispace-home .ispace-about__grid::before,
+.ispace-home .ispace-about__grid::after{
+  content:"";
+  position:absolute;
+  inset:17%;
+  border:1px solid rgba(200,169,106,.13);
+  border-radius:50%;
+}
+
+.ispace-home .ispace-about__grid::after{
+  inset:34%;
+  border-color:rgba(109,53,232,.2);
+}
+
+.ispace-home .ispace-about__container{
+  position:relative!important;
+  z-index:2!important;
+  max-width:1500px!important;
+  margin:0 auto!important;
+}
+
+.ispace-home .ispace-about .section-eyebrow{
+  color:rgba(245,242,235,.4)!important;
+}
+
+.ispace-home .ispace-about .section-eyebrow__line{
+  background:rgba(255,255,255,.12)!important;
+}
+
+.ispace-home .ispace-about__layout{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr)!important;
+  gap:100px!important;
+  align-items:end!important;
+  margin-top:90px!important;
+}
+
+.ispace-home .ispace-about__heading h2{
+  margin:0!important;
+  color:#f5f2eb!important;
+  font-size:clamp(4rem,8vw,9rem)!important;
+  line-height:.78!important;
+  letter-spacing:-.085em!important;
+  font-weight:500!important;
+}
+
+.ispace-home .ispace-about__heading h2 em{
+  color:#8065bd!important;
+  font-style:normal!important;
+}
+
+.ispace-home .ispace-about__copy{
+  max-width:520px!important;
+}
+
+.ispace-home .ispace-about__copy p{
+  margin:0 0 24px!important;
+  color:rgba(245,242,235,.5)!important;
+  font-size:.82rem!important;
+  line-height:1.9!important;
+}
+
+.ispace-home .ispace-about__meta{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:8px!important;
+  margin-top:45px!important;
+}
+
+.ispace-home .ispace-about__meta span{
+  padding:13px 16px!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  color:rgba(245,242,235,.48)!important;
+  background:rgba(255,255,255,.035)!important;
+  backdrop-filter:blur(12px)!important;
+  font-size:.48rem!important;
+  font-weight:800!important;
+  letter-spacing:.14em!important;
+}
+
+.ispace-home .ispace-about__meta span:last-child{
+  border-color:rgba(200,169,106,.25)!important;
+  color:#c8a96a!important;
+}
+
+@media(max-width:1050px){
+  .ispace-home .ispace-about__layout{
+    grid-template-columns:1fr!important;
+    gap:55px!important;
+  }
+}
+
+@media(max-width:700px){
+  .ispace-home .ispace-about{
+    padding:105px 5vw 80px!important;
+  }
+
+  .ispace-home .ispace-about__layout{
+    margin-top:65px!important;
+  }
+
+  .ispace-home .ispace-about__heading h2{
+    font-size:clamp(3.3rem,15vw,5.5rem)!important;
+  }
+
+  .ispace-home .ispace-about__grid{
+    width:110vw!important;
+    height:110vw!important;
+    right:-55vw!important;
+  }
+}
+
