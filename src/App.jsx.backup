@@ -1,0 +1,537 @@
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ISpaceLoader from "./components/loader/ISpaceLoader";
+import "./App.css";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const navItems = [
+  "ABOUT",
+  "PROCUREMENT",
+  "CAPABILITIES",
+  "LOGISTICS",
+  "INDIA EXPORTS",
+  "OUR REACH",
+];
+
+const capabilities = [
+  {
+    number: "01",
+    title: "MANPOWER",
+    description:
+      "Manpower support for organizations requiring people and project-based operational assistance.",
+    tag: "PEOPLE / PROJECTS",
+  },
+  {
+    number: "02",
+    title: "TECHNICAL SUPPORT",
+    description:
+      "Technical support for organizations requiring specialized assistance across project requirements.",
+    tag: "TECHNICAL / SUPPORT",
+  },
+  {
+    number: "03",
+    title: "PROCUREMENT & SUPPLY",
+    description:
+      "Requirement-driven sourcing, supplier identification, quotation comparison, evaluation, negotiation and purchasing coordination.",
+    tag: "SOURCE / PROCURE",
+  },
+  {
+    number: "04",
+    title: "LOGISTICS & DELIVERY",
+    description:
+      "Coordinated movement of requirements through logistics and delivery networks from sourcing to destination.",
+    tag: "MOVE / DELIVER",
+  },
+];
+
+function NetworkVisual() {
+  return (
+    <div className="network-visual" aria-hidden="true">
+      <div className="network-visual__glow" />
+
+      <div className="network-visual__sphere">
+        <div className="sphere-grid sphere-grid--one" />
+        <div className="sphere-grid sphere-grid--two" />
+        <div className="sphere-ring sphere-ring--one" />
+        <div className="sphere-ring sphere-ring--two" />
+      </div>
+
+      <div className="network-route network-route--one">
+        <span className="route-dot route-dot--purple" />
+      </div>
+
+      <div className="network-route network-route--two">
+        <span className="route-dot route-dot--gold" />
+      </div>
+
+      <div className="network-route network-route--three">
+        <span className="route-dot route-dot--purple" />
+      </div>
+
+      <div className="network-node network-node--usa">
+        <span />
+        <small>USA</small>
+      </div>
+
+      <div className="network-node network-node--middle-east">
+        <span />
+        <small>MIDDLE EAST</small>
+      </div>
+
+      <div className="network-node network-node--india">
+        <span />
+        <small>HYDERABAD</small>
+      </div>
+
+      <div className="network-visual__label network-visual__label--top">
+        GLOBAL SOURCING NETWORK
+      </div>
+
+      <div className="network-visual__label network-visual__label--bottom">
+        PROCUREMENT / SUPPLY / DELIVERY
+      </div>
+
+      <div className="network-visual__crosshair">
+        <i />
+        <i />
+        <i />
+        <i />
+      </div>
+    </div>
+  );
+}
+
+function CapabilityCard({ capability, index }) {
+  return (
+    <article
+      className={`capability-card capability-card--${index + 1}`}
+    >
+      <div className="capability-card__top">
+        <span className="capability-card__number">
+          {capability.number}
+        </span>
+
+        <span className="capability-card__tag">
+          {capability.tag}
+        </span>
+      </div>
+
+      <div className="capability-card__visual">
+        <div className="capability-card__orb">
+          <span />
+          <span />
+          <span />
+        </div>
+
+        <span className="capability-card__index">
+          0{index + 1}
+        </span>
+      </div>
+
+      <div className="capability-card__content">
+        <h3>{capability.title}</h3>
+
+        <p>{capability.description}</p>
+
+        <span className="capability-card__arrow">
+          ↗
+        </span>
+      </div>
+    </article>
+  );
+}
+
+function App() {
+  const [loading, setLoading] = useState(true);
+
+  const homeRef = useRef(null);
+  const navRef = useRef(null);
+  const visualRef = useRef(null);
+
+  useEffect(() => {
+    if (loading) return;
+
+    const ctx = gsap.context(() => {
+      const intro = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        },
+      });
+
+      intro
+        .from(navRef.current, {
+          y: -24,
+          opacity: 0,
+          duration: 0.7,
+        })
+        .from(
+          ".hero-eyebrow",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.55,
+          },
+          "-=0.35"
+        )
+        .from(
+          ".hero-title-line",
+          {
+            yPercent: 105,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power4.out",
+          },
+          "-=0.3"
+        )
+        .from(
+          ".hero-copy",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.55,
+          },
+          "-=0.4"
+        )
+        .from(
+          ".hero-actions",
+          {
+            y: 18,
+            opacity: 0,
+            duration: 0.5,
+          },
+          "-=0.25"
+        )
+        .from(
+          ".network-visual",
+          {
+            scale: 0.82,
+            opacity: 0,
+            rotationY: -10,
+            duration: 1.1,
+            ease: "expo.out",
+          },
+          "-=0.75"
+        )
+        .from(
+          ".network-node",
+          {
+            scale: 0,
+            opacity: 0,
+            stagger: 0.12,
+            duration: 0.45,
+            ease: "back.out(2)",
+          },
+          "-=0.5"
+        );
+
+      gsap.to(".network-visual__sphere", {
+        rotation: 360,
+        duration: 45,
+        repeat: -1,
+        ease: "none",
+      });
+
+      gsap.to(".sphere-ring--one", {
+        rotation: -360,
+        duration: 22,
+        repeat: -1,
+        ease: "none",
+      });
+
+      gsap.to(".sphere-ring--two", {
+        rotation: 360,
+        duration: 30,
+        repeat: -1,
+        ease: "none",
+      });
+
+      gsap.to(".network-visual__glow", {
+        scale: 1.12,
+        opacity: 0.7,
+        duration: 2.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      gsap.to(".route-dot", {
+        boxShadow:
+          "0 0 6px rgba(255,255,255,.9), 0 0 20px rgba(109,53,232,.65)",
+        duration: 1.2,
+        repeat: -1,
+        yoyo: true,
+        stagger: 0.3,
+        ease: "sine.inOut",
+      });
+
+      gsap.from(".capabilities-header > *", {
+        scrollTrigger: {
+          trigger: ".capabilities",
+          start: "top 75%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: "power3.out",
+      });
+
+      gsap.from(".capability-card", {
+        scrollTrigger: {
+          trigger: ".capabilities-grid",
+          start: "top 78%",
+        },
+        y: 70,
+        opacity: 0,
+        rotateX: 7,
+        duration: 0.9,
+        stagger: 0.12,
+        ease: "power3.out",
+      });
+
+      gsap.to(".capabilities__orb", {
+        y: -18,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      const handlePointer = (event) => {
+        if (!visualRef.current) return;
+
+        const rect = visualRef.current.getBoundingClientRect();
+
+        const x =
+          (event.clientX - rect.left) / rect.width - 0.5;
+
+        const y =
+          (event.clientY - rect.top) / rect.height - 0.5;
+
+        gsap.to(".network-visual__sphere", {
+          x: x * 18,
+          y: y * 18,
+          duration: 0.8,
+          ease: "power3.out",
+        });
+
+        gsap.to(".network-node", {
+          x: x * 10,
+          y: y * 10,
+          duration: 1,
+          ease: "power3.out",
+        });
+      };
+
+      window.addEventListener("pointermove", handlePointer);
+
+      return () => {
+        window.removeEventListener(
+          "pointermove",
+          handlePointer
+        );
+      };
+    }, homeRef);
+
+    return () => ctx.revert();
+  }, [loading]);
+
+  return (
+    <>
+      {loading && (
+        <ISpaceLoader onComplete={() => setLoading(false)} />
+      )}
+
+      <main ref={homeRef} className="ispace-home">
+        <nav ref={navRef} className="ispace-nav">
+          <a
+            className="ispace-brand"
+            href="/"
+            aria-label="iSpace home"
+          >
+            <span className="ispace-brand__mark">+</span>
+            <span className="ispace-brand__name">
+              iSpace
+            </span>
+          </a>
+
+          <div className="ispace-nav__links">
+            {navItems.map((item, index) => (
+              <a
+                key={item}
+                href={`#${item
+                  .toLowerCase()
+                  .replaceAll(" ", "-")}`}
+                className={index === 0 ? "is-active" : ""}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+
+          <a
+            className="ispace-nav__cta"
+            href="#request-a-quote"
+          >
+            <span>REQUEST A QUOTE</span>
+            <span className="cta-arrow">↗</span>
+          </a>
+
+          <button
+            className="ispace-nav__menu"
+            type="button"
+            aria-label="Open navigation"
+          >
+            <span />
+            <span />
+          </button>
+        </nav>
+
+        {/* =====================================================
+            HERO
+        ====================================================== */}
+
+        <section className="ispace-hero">
+          <div className="ispace-hero__grid" />
+
+          <div className="ispace-hero__content">
+            <div className="hero-eyebrow">
+              <span className="eyebrow-line" />
+              <span>
+                GLOBAL SOURCING / PROCUREMENT / LOGISTICS
+              </span>
+            </div>
+
+            <h1 className="hero-title">
+              <span className="hero-title-line">
+                CONNECTING
+              </span>
+
+              <span className="hero-title-line">
+                <em>GLOBAL</em> REQUIREMENTS.
+              </span>
+
+              <span className="hero-title-line hero-title-line--small">
+                TO THE RIGHT SUPPLY.
+              </span>
+            </h1>
+
+            <p className="hero-copy">
+              iSpace connects international requirements
+              with sourcing, procurement, supply and
+              coordinated delivery networks — supported by
+              Middle East operations and a dedicated
+              Hyderabad sourcing hub.
+            </p>
+
+            <div className="hero-actions">
+              <a
+                className="hero-primary"
+                href="#request-a-quote"
+              >
+                <span>REQUEST A QUOTE</span>
+                <span className="hero-primary__arrow">
+                  ↗
+                </span>
+              </a>
+
+              <a
+                className="hero-secondary"
+                href="#capabilities"
+              >
+                EXPLORE CAPABILITIES
+              </a>
+            </div>
+          </div>
+
+          <div
+            ref={visualRef}
+            className="ispace-hero__visual"
+          >
+            <NetworkVisual />
+          </div>
+
+          <div className="hero-footer">
+            <span>01 / 07</span>
+
+            <div className="hero-footer__line">
+              <span />
+            </div>
+
+            <span>SCROLL TO EXPLORE</span>
+          </div>
+        </section>
+
+        {/* =====================================================
+            CAPABILITIES
+        ====================================================== */}
+
+        <section
+          id="capabilities"
+          className="capabilities"
+        >
+          <div className="capabilities__orb" />
+
+          <div className="capabilities-header">
+            <div className="section-eyebrow">
+              <span>02</span>
+              <span className="section-eyebrow__line" />
+              <span>WHAT WE CAN PROVIDE</span>
+            </div>
+
+            <div className="capabilities-header__layout">
+              <h2>
+                CAPABILITIES
+                <br />
+                <em>BUILT AROUND</em>
+                <br />
+                REQUIREMENTS.
+              </h2>
+
+              <div className="capabilities-header__copy">
+                <p>
+                  iSpace brings together sourcing,
+                  procurement, technical support,
+                  manpower and coordinated delivery
+                  capabilities around the requirements
+                  of each customer.
+                </p>
+
+                <span className="capabilities-header__micro">
+                  ONE PARTNER / MULTIPLE REQUIREMENTS
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="capabilities-grid">
+            {capabilities.map((capability, index) => (
+              <CapabilityCard
+                key={capability.number}
+                capability={capability}
+                index={index}
+              />
+            ))}
+          </div>
+
+          <div className="capabilities-bottom">
+            <span>02 / 07</span>
+
+            <div className="capabilities-bottom__line">
+              <span />
+            </div>
+
+            <span>
+              SOURCE / COORDINATE / DELIVER
+            </span>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
+
+export default App;
