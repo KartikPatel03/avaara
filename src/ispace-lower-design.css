@@ -1,0 +1,965 @@
+/* iSPACE LOWER EXPERIENCE — CINEMATIC DESIGN PASS */
+
+.ispace-home .capabilities,
+.ispace-home .ispace-logistics,
+.ispace-home .india-exports,
+.ispace-home .ispace-reach,
+.ispace-home .ispace-quote{
+  position:relative!important;
+  isolation:isolate;
+  overflow:hidden;
+}
+
+/* ================= CAPABILITIES ================= */
+
+.ispace-home .capabilities{
+  min-height:100vh!important;
+  padding:150px 6vw 110px!important;
+  color:#f5f2eb!important;
+  background:
+    radial-gradient(circle at 78% 20%,rgba(109,53,232,.18),transparent 28%),
+    radial-gradient(circle at 12% 82%,rgba(210,165,43,.06),transparent 24%),
+    linear-gradient(145deg,#090811,#11101b 52%,#08070d)!important;
+}
+
+.ispace-home .capabilities::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:68px 68px;
+  mask-image:linear-gradient(to bottom,black,transparent 88%);
+}
+
+.ispace-home .capabilities::after{
+  content:"CAPABILITIES";
+  position:absolute;
+  right:-2vw;
+  bottom:-1.8vw;
+  z-index:-1;
+  color:rgba(255,255,255,.025);
+  font-size:clamp(7rem,20vw,19rem);
+  font-weight:700;
+  letter-spacing:-.08em;
+  line-height:.7;
+}
+
+.ispace-home .capabilities__orb{
+  position:absolute!important;
+  width:620px!important;
+  height:620px!important;
+  right:-290px!important;
+  top:18%!important;
+  border:1px solid rgba(109,53,232,.14)!important;
+  border-radius:50%!important;
+  box-shadow:
+    0 0 0 70px rgba(109,53,232,.018),
+    0 0 0 140px rgba(210,165,43,.012)!important;
+}
+
+.ispace-home .capabilities__orb::before,
+.ispace-home .capabilities__orb::after{
+  content:"";
+  position:absolute;
+  inset:16%;
+  border:1px solid rgba(210,165,43,.11);
+  border-radius:50%;
+}
+
+.ispace-home .capabilities__orb::after{
+  inset:31%;
+  border-color:rgba(109,53,232,.17);
+}
+
+.ispace-home .capabilities-header,
+.ispace-home .capabilities-grid,
+.ispace-home .capabilities-bottom{
+  position:relative;
+  z-index:2;
+}
+
+.ispace-home .capabilities-header{
+  margin-bottom:68px!important;
+}
+
+.ispace-home .capabilities-header .section-eyebrow{
+  color:rgba(245,242,235,.42)!important;
+}
+
+.ispace-home .capabilities-header__layout{
+  grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr)!important;
+  gap:80px!important;
+  align-items:end!important;
+}
+
+.ispace-home .capabilities-header h2{
+  color:#f5f2eb!important;
+  font-size:clamp(3.6rem,7.2vw,8rem)!important;
+  line-height:.82!important;
+  letter-spacing:-.07em!important;
+  font-weight:500!important;
+}
+
+.ispace-home .capabilities-header h2 em{
+  color:#8065bd!important;
+}
+
+.ispace-home .capabilities-header__copy p{
+  color:rgba(245,242,235,.48)!important;
+  font-size:.78rem!important;
+  line-height:1.9!important;
+}
+
+.ispace-home .capabilities-header__micro{
+  color:#c8a96a!important;
+  font-size:.47rem!important;
+  letter-spacing:.18em!important;
+}
+
+.ispace-home .capabilities-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+
+.ispace-home .capability-card{
+  position:relative!important;
+  min-height:455px!important;
+  padding:24px!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  border-radius:2px!important;
+  color:#f5f2eb!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.012))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 30px 80px rgba(0,0,0,.16)!important;
+  overflow:hidden!important;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.16,1,.3,1),border-color .5s,background .5s,box-shadow .5s;
+}
+
+.ispace-home .capability-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 38%,rgba(109,53,232,.18),transparent 48%);
+  opacity:.25;
+  transition:opacity .6s,transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+.ispace-home .capability-card::after{
+  content:"";
+  position:absolute;
+  left:24px;
+  right:24px;
+  bottom:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(210,165,43,.8),transparent);
+  transform:scaleX(.25);
+  transition:transform .7s cubic-bezier(.16,1,.3,1);
+}
+
+.ispace-home .capability-card:hover{
+  transform:translateY(-10px)!important;
+  border-color:rgba(128,101,189,.42)!important;
+  background:linear-gradient(145deg,rgba(128,101,189,.12),rgba(255,255,255,.025))!important;
+  box-shadow:0 38px 90px rgba(0,0,0,.28),0 0 55px rgba(109,53,232,.08)!important;
+}
+
+.ispace-home .capability-card:hover::before{
+  opacity:1;
+  transform:scale(1.12);
+}
+
+.ispace-home .capability-card:hover::after{
+  transform:scaleX(1);
+}
+
+.ispace-home .capability-card__top,
+.ispace-home .capability-card__visual,
+.ispace-home .capability-card__content{
+  position:relative;
+  z-index:2;
+}
+
+.ispace-home .capability-card__number{
+  color:#c8a96a!important;
+}
+
+.ispace-home .capability-card__tag{
+  color:rgba(245,242,235,.28)!important;
+}
+
+.ispace-home .capability-card__visual{
+  min-height:230px!important;
+  display:grid!important;
+  place-items:center!important;
+}
+
+.ispace-home .capability-card__orb{
+  width:96px!important;
+  height:96px!important;
+  border:1px solid rgba(128,101,189,.45)!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle at 35% 30%,#b8a5dc,#7457a3 28%,#251d35 72%,#0c0a11)!important;
+  box-shadow:inset -18px -20px 30px rgba(0,0,0,.4),0 20px 55px rgba(67,45,105,.28)!important;
+  animation:ispaceOrbFloat 5s ease-in-out infinite;
+}
+
+.ispace-home .capability-card__orb span{
+  position:absolute!important;
+  inset:-19px!important;
+  border:1px solid rgba(200,169,106,.2)!important;
+  border-radius:50%!important;
+  transform:rotate(28deg) scaleY(.34)!important;
+}
+
+.ispace-home .capability-card__orb span:nth-child(2){
+  transform:rotate(-28deg) scaleY(.34)!important;
+}
+
+.ispace-home .capability-card__orb span:nth-child(3){
+  transform:rotate(90deg) scaleY(.34)!important;
+  border-color:rgba(109,53,232,.28)!important;
+}
+
+.ispace-home .capability-card__index{
+  color:rgba(255,255,255,.12)!important;
+  font-size:4rem!important;
+  font-weight:600!important;
+}
+
+.ispace-home .capability-card__content{
+  border-top:1px solid rgba(255,255,255,.07);
+  padding-top:18px;
+}
+
+.ispace-home .capability-card__content h3{
+  color:#f5f2eb!important;
+  font-size:1.05rem!important;
+}
+
+.ispace-home .capability-card__content p{
+  color:rgba(245,242,235,.42)!important;
+  font-size:.63rem!important;
+  line-height:1.75!important;
+}
+
+.ispace-home .capability-card__arrow{
+  color:#c8a96a!important;
+  font-size:1.15rem!important;
+}
+
+.ispace-home .capabilities-bottom{
+  margin-top:40px!important;
+  color:rgba(245,242,235,.22)!important;
+}
+
+.ispace-home .capabilities-bottom__line{
+  background:rgba(255,255,255,.09)!important;
+}
+
+.ispace-home .capabilities-bottom__line span{
+  background:#c8a96a!important;
+}
+
+/* ================= LOGISTICS ================= */
+
+.ispace-home .ispace-logistics{
+  min-height:92vh!important;
+  padding:140px 6vw 120px!important;
+  color:#f6f2e9!important;
+  background:linear-gradient(120deg,#0b0912,#151022 48%,#090811)!important;
+}
+
+.ispace-home .ispace-logistics::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 16% 35%,rgba(109,53,232,.18),transparent 27%),
+    radial-gradient(circle at 85% 70%,rgba(210,165,43,.06),transparent 24%),
+    linear-gradient(90deg,transparent 49.9%,rgba(255,255,255,.035) 50%,transparent 50.1%);
+}
+
+.ispace-home .ispace-logistics__orb{
+  position:absolute!important;
+  width:720px!important;
+  height:720px!important;
+  right:-330px!important;
+  top:-150px!important;
+  border:1px solid rgba(109,53,232,.15)!important;
+  border-radius:50%!important;
+  box-shadow:0 0 0 90px rgba(109,53,232,.025),0 0 0 180px rgba(210,165,43,.012)!important;
+}
+
+.ispace-home .ispace-logistics__orb::before,
+.ispace-home .ispace-logistics__orb::after{
+  content:"";
+  position:absolute;
+  inset:18%;
+  border:1px solid rgba(200,169,106,.13);
+  border-radius:50%;
+}
+
+.ispace-home .ispace-logistics__orb::after{
+  inset:34%;
+  border-color:rgba(109,53,232,.18);
+}
+
+.ispace-home .ispace-logistics__container{
+  position:relative;
+  z-index:2;
+}
+
+.ispace-home .section-eyebrow--light{
+  color:rgba(246,242,233,.4)!important;
+}
+
+.ispace-home .ispace-logistics__heading{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr)!important;
+  gap:80px!important;
+  align-items:end!important;
+  margin:40px 0 80px!important;
+}
+
+.ispace-home .ispace-logistics__heading h2{
+  color:#f6f2e9!important;
+  font-size:clamp(3.8rem,7vw,7.8rem)!important;
+  line-height:.82!important;
+  letter-spacing:-.07em!important;
+  font-weight:500!important;
+}
+
+.ispace-home .ispace-logistics__heading h2 em{
+  color:#8065bd!important;
+}
+
+.ispace-home .ispace-logistics__heading p{
+  color:rgba(246,242,233,.46)!important;
+  line-height:1.9!important;
+  font-size:.78rem!important;
+}
+
+.ispace-home .logistics-flow{
+  position:relative;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+
+.ispace-home .logistics-flow__line{
+  position:absolute!important;
+  left:7%!important;
+  right:7%!important;
+  top:34px!important;
+  height:1px!important;
+  background:rgba(255,255,255,.1)!important;
+  z-index:0!important;
+}
+
+.ispace-home .logistics-flow__line span{
+  display:block;
+  width:22%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,#c8a96a,transparent);
+  animation:ispaceRouteBeam 3.2s linear infinite;
+}
+
+.ispace-home .logistics-flow article{
+  position:relative!important;
+  z-index:1!important;
+  min-height:245px!important;
+  padding:24px!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  background:rgba(255,255,255,.035)!important;
+  backdrop-filter:blur(14px)!important;
+  transition:transform .55s cubic-bezier(.16,1,.3,1),border-color .45s,background .45s;
+}
+
+.ispace-home .logistics-flow article:hover{
+  transform:translateY(-9px)!important;
+  border-color:rgba(200,169,106,.35)!important;
+  background:rgba(109,53,232,.08)!important;
+}
+
+.ispace-home .logistics-flow article>span{
+  display:grid!important;
+  place-items:center!important;
+  width:68px!important;
+  height:68px!important;
+  margin-bottom:42px!important;
+  border:1px solid rgba(200,169,106,.35)!important;
+  border-radius:50%!important;
+  color:#c8a96a!important;
+  background:radial-gradient(circle,rgba(109,53,232,.3),rgba(9,8,17,.8) 68%)!important;
+  box-shadow:0 0 0 9px rgba(200,169,106,.025)!important;
+  font-size:.55rem!important;
+  font-weight:800!important;
+}
+
+.ispace-home .logistics-flow article h3{
+  color:#f6f2e9!important;
+  font-size:1rem!important;
+}
+
+.ispace-home .logistics-flow article p{
+  color:rgba(246,242,233,.4)!important;
+  font-size:.62rem!important;
+  line-height:1.7!important;
+}
+
+/* ================= INDIA EXPORTS ================= */
+
+.ispace-home .india-exports{
+  min-height:100vh!important;
+  padding:145px 6vw 120px!important;
+  color:#17112b!important;
+  background:
+    radial-gradient(circle at 82% 18%,rgba(109,53,232,.12),transparent 26%),
+    linear-gradient(145deg,#fff,#f6f2fa 52%,#ece8f3)!important;
+}
+
+.ispace-home .india-exports::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background-image:
+    linear-gradient(rgba(55,35,85,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(55,35,85,.04) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
+.ispace-home .india-exports__background{
+  position:absolute!important;
+  inset:0!important;
+}
+
+.ispace-home .india-exports__background::before{
+  content:"INDIA";
+  position:absolute;
+  right:-1vw;
+  bottom:-2vw;
+  color:rgba(109,53,232,.035);
+  font-size:clamp(9rem,25vw,25rem);
+  font-weight:700;
+  letter-spacing:-.09em;
+  line-height:.7;
+}
+
+.ispace-home .india-exports__heading{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr)!important;
+  gap:80px!important;
+  align-items:end!important;
+  margin:42px 0 68px!important;
+}
+
+.ispace-home .india-exports__heading h2{
+  color:#19132e!important;
+  font-size:clamp(3.8rem,7.3vw,8rem)!important;
+  line-height:.82!important;
+  letter-spacing:-.075em!important;
+  font-weight:500!important;
+}
+
+.ispace-home .india-exports__heading h2 em{
+  color:#7654ad!important;
+}
+
+.ispace-home .india-exports__heading p{
+  color:rgba(23,17,43,.52)!important;
+  font-size:.78rem!important;
+  line-height:1.9!important;
+}
+
+.ispace-home .india-exports__grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+
+.ispace-home .india-export-card{
+  position:relative!important;
+  min-height:430px!important;
+  padding:22px!important;
+  border:1px solid rgba(64,42,101,.1)!important;
+  background:rgba(255,255,255,.56)!important;
+  backdrop-filter:blur(12px)!important;
+  box-shadow:0 22px 65px rgba(55,35,85,.055)!important;
+  overflow:hidden!important;
+  transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .6s,border-color .5s;
+}
+
+.ispace-home .india-export-card:hover{
+  transform:translateY(-10px)!important;
+  border-color:rgba(109,53,232,.25)!important;
+  box-shadow:0 35px 90px rgba(55,35,85,.13)!important;
+}
+
+.ispace-home .india-export-card__top{
+  color:rgba(23,17,43,.35)!important;
+}
+
+.ispace-home .india-export-card__top span:first-child{
+  color:#c5a34c!important;
+}
+
+.ispace-home .india-export-card__visual{
+  position:relative!important;
+  height:190px!important;
+  display:grid!important;
+  place-items:center!important;
+}
+
+.ispace-home .india-export-card__ring{
+  width:120px!important;
+  height:120px!important;
+  border:1px solid rgba(109,53,232,.24)!important;
+  border-radius:50%!important;
+  box-shadow:0 0 0 18px rgba(109,53,232,.025),0 0 0 38px rgba(200,169,106,.018)!important;
+  animation:ispaceIndiaSpin 16s linear infinite;
+}
+
+.ispace-home .india-export-card__ring::before,
+.ispace-home .india-export-card__ring::after{
+  content:"";
+  position:absolute;
+  inset:27px;
+  border:1px solid rgba(200,169,106,.24);
+  border-radius:50%;
+}
+
+.ispace-home .india-export-card__ring::after{
+  inset:45px;
+  border-color:rgba(109,53,232,.3);
+}
+
+.ispace-home .india-export-card__dot{
+  position:absolute!important;
+  width:9px!important;
+  height:9px!important;
+  border-radius:50%!important;
+  background:#c5a34c!important;
+  box-shadow:0 0 0 7px rgba(197,163,76,.09),0 0 24px rgba(197,163,76,.4)!important;
+}
+
+.ispace-home .india-export-card__content{
+  border-top:1px solid rgba(64,42,101,.09);
+  padding-top:18px;
+}
+
+.ispace-home .india-export-card__content h3{
+  color:#1b142f!important;
+  font-size:1rem!important;
+}
+
+.ispace-home .india-export-card__content p{
+  color:rgba(23,17,43,.48)!important;
+  font-size:.62rem!important;
+  line-height:1.75!important;
+}
+
+.ispace-home .india-export-card__content>span{
+  color:#7654ad!important;
+  font-size:.47rem!important;
+  font-weight:800!important;
+  letter-spacing:.14em!important;
+}
+
+/* ================= OUR REACH ================= */
+
+.ispace-home .ispace-reach{
+  min-height:96vh!important;
+  padding:140px 6vw 110px!important;
+  color:#f4f1e9!important;
+  background:
+    radial-gradient(circle at 50% 48%,rgba(109,53,232,.16),transparent 31%),
+    linear-gradient(145deg,#08070d,#13101e 55%,#090811)!important;
+}
+
+.ispace-home .ispace-reach::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+
+.ispace-home .ispace-reach__world{
+  position:absolute!important;
+  width:min(70vw,900px)!important;
+  height:min(70vw,900px)!important;
+  left:50%!important;
+  top:53%!important;
+  transform:translate(-50%,-50%)!important;
+  border:1px solid rgba(109,53,232,.12)!important;
+  border-radius:50%!important;
+}
+
+.ispace-home .reach-ring{
+  position:absolute!important;
+  inset:12%!important;
+  border:1px solid rgba(109,53,232,.16)!important;
+  border-radius:50%!important;
+  transform:rotate(-22deg) scaleY(.36)!important;
+  animation:ispaceReachOrbit 18s linear infinite;
+}
+
+.ispace-home .reach-ring--two{
+  inset:22%!important;
+  border-color:rgba(200,169,106,.2)!important;
+  transform:rotate(34deg) scaleY(.28)!important;
+  animation-duration:13s;
+  animation-direction:reverse;
+}
+
+.ispace-home .reach-ring--three{
+  inset:34%!important;
+  border-color:rgba(109,53,232,.22)!important;
+  transform:rotate(74deg) scaleY(.23)!important;
+  animation-duration:9s;
+}
+
+.ispace-home .reach-point{
+  position:absolute!important;
+  width:10px!important;
+  height:10px!important;
+  border-radius:50%!important;
+  background:#c8a96a!important;
+  box-shadow:0 0 0 8px rgba(200,169,106,.08),0 0 28px rgba(200,169,106,.45)!important;
+}
+
+.ispace-home .reach-point--usa{left:22%;top:34%}
+.ispace-home .reach-point--middle-east{left:64%;top:43%}
+.ispace-home .reach-point--india{left:69%;top:64%}
+
+.ispace-home .ispace-reach__container{
+  position:relative;
+  z-index:3;
+}
+
+.ispace-home .ispace-reach .section-eyebrow{
+  color:rgba(244,241,233,.4)!important;
+}
+
+.ispace-home .ispace-reach__content{
+  max-width:760px!important;
+  margin-top:90px!important;
+}
+
+.ispace-home .ispace-reach__content h2{
+  color:#f4f1e9!important;
+  font-size:clamp(4rem,8vw,8.5rem)!important;
+  line-height:.8!important;
+  letter-spacing:-.075em!important;
+  font-weight:500!important;
+}
+
+.ispace-home .ispace-reach__content h2 em{
+  color:#8065bd!important;
+}
+
+.ispace-home .ispace-reach__content p{
+  max-width:430px!important;
+  margin-top:34px!important;
+  color:rgba(244,241,233,.46)!important;
+  font-size:.78rem!important;
+  line-height:1.9!important;
+}
+
+.ispace-home .reach-locations{
+  position:relative!important;
+  z-index:4!important;
+  display:flex!important;
+  gap:10px!important;
+  margin-top:90px!important;
+}
+
+.ispace-home .reach-locations span{
+  padding:13px 17px!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  color:rgba(244,241,233,.5)!important;
+  background:rgba(255,255,255,.035)!important;
+  font-size:.48rem!important;
+  font-weight:800!important;
+  letter-spacing:.14em!important;
+  backdrop-filter:blur(12px)!important;
+}
+
+.ispace-home .reach-locations span:last-child{
+  border-color:rgba(200,169,106,.24)!important;
+  color:#c8a96a!important;
+}
+
+/* ================= REQUEST A QUOTE / FINAL ================= */
+
+.ispace-home .ispace-quote{
+  min-height:100vh!important;
+  padding:140px 6vw 70px!important;
+  color:#17112b!important;
+  background:
+    radial-gradient(circle at 12% 25%,rgba(109,53,232,.11),transparent 26%),
+    linear-gradient(135deg,#fff,#f6f2fa 55%,#e9e5f1)!important;
+}
+
+.ispace-home .ispace-quote::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background-image:
+    linear-gradient(rgba(64,42,101,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(64,42,101,.035) 1px,transparent 1px);
+  background-size:70px 70px;
+}
+
+.ispace-home .ispace-quote::after{
+  content:"iSPACE";
+  position:absolute;
+  left:-1vw;
+  bottom:-3vw;
+  color:rgba(109,53,232,.045);
+  font-size:clamp(9rem,27vw,28rem);
+  line-height:.68;
+  font-weight:700;
+  letter-spacing:-.09em;
+  pointer-events:none;
+}
+
+.ispace-home .ispace-quote__container{
+  position:relative;
+  z-index:3;
+}
+
+.ispace-home .ispace-quote__heading{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)!important;
+  gap:90px!important;
+  align-items:end!important;
+  margin:44px 0 65px!important;
+}
+
+.ispace-home .ispace-quote__heading h2{
+  color:#19132e!important;
+  font-size:clamp(4rem,8vw,8.5rem)!important;
+  line-height:.8!important;
+  letter-spacing:-.08em!important;
+  font-weight:500!important;
+}
+
+.ispace-home .ispace-quote__heading h2 em{
+  color:#7654ad!important;
+}
+
+.ispace-home .ispace-quote__heading p{
+  color:rgba(23,17,43,.52)!important;
+  font-size:.78rem!important;
+  line-height:1.9!important;
+}
+
+.ispace-home .quote-form{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:1px!important;
+  padding:1px!important;
+  background:rgba(64,42,101,.12)!important;
+  box-shadow:0 35px 90px rgba(50,30,85,.09)!important;
+}
+
+.ispace-home .quote-form label{
+  min-height:112px!important;
+  padding:22px!important;
+  background:rgba(255,255,255,.72)!important;
+  backdrop-filter:blur(12px)!important;
+}
+
+.ispace-home .quote-form label:nth-child(4){
+  grid-column:1/-1;
+  min-height:185px!important;
+}
+
+.ispace-home .quote-form label span{
+  color:#a88a38!important;
+  font-size:.46rem!important;
+  font-weight:800!important;
+  letter-spacing:.16em!important;
+}
+
+.ispace-home .quote-form input,
+.ispace-home .quote-form textarea{
+  width:100%!important;
+  margin-top:16px!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  resize:none!important;
+  color:#19132e!important;
+  background:transparent!important;
+  font:inherit!important;
+  font-size:.85rem!important;
+}
+
+.ispace-home .quote-form input::placeholder,
+.ispace-home .quote-form textarea::placeholder{
+  color:rgba(23,17,43,.28)!important;
+}
+
+.ispace-home .quote-form label:focus-within{
+  box-shadow:inset 0 0 0 1px rgba(109,53,232,.35);
+}
+
+.ispace-home .quote-form button{
+  grid-column:1/-1!important;
+  min-height:76px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  padding:0 25px!important;
+  border:0!important;
+  color:#fff!important;
+  background:linear-gradient(100deg,#4d25b4,#6d35e8 55%,#8056e9)!important;
+  cursor:pointer!important;
+  font:inherit!important;
+  font-size:.58rem!important;
+  font-weight:800!important;
+  letter-spacing:.14em!important;
+  transition:transform .3s,filter .3s;
+}
+
+.ispace-home .quote-form button:hover{
+  filter:brightness(1.08);
+  transform:translateY(-2px);
+}
+
+.ispace-home .quote-form button span:last-child{
+  font-size:1.35rem;
+}
+
+.ispace-home .ispace-quote__container::after{
+  content:"GLOBAL SOURCING  /  PROCUREMENT  /  SUPPLY  /  LOGISTICS  /  INDIA EXPORTS";
+  display:block;
+  margin-top:55px;
+  padding-top:20px;
+  border-top:1px solid rgba(23,17,43,.1);
+  color:rgba(23,17,43,.28);
+  font-size:.46rem;
+  font-weight:800;
+  letter-spacing:.15em;
+}
+
+/* ================= MOTION ================= */
+
+@keyframes ispaceOrbFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+@keyframes ispaceRouteBeam{
+  from{transform:translateX(-30%)}
+  to{transform:translateX(470%)}
+}
+
+@keyframes ispaceIndiaSpin{
+  to{transform:rotate(360deg)}
+}
+
+@keyframes ispaceReachOrbit{
+  to{transform:rotate(338deg) scaleY(.36)}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1050px){
+  .ispace-home .capabilities-grid,
+  .ispace-home .india-exports__grid,
+  .ispace-home .logistics-flow{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+
+  .ispace-home .capabilities-header__layout,
+  .ispace-home .ispace-logistics__heading,
+  .ispace-home .india-exports__heading,
+  .ispace-home .ispace-quote__heading{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+}
+
+@media(max-width:700px){
+  .ispace-home .capabilities,
+  .ispace-home .ispace-logistics,
+  .ispace-home .india-exports,
+  .ispace-home .ispace-reach,
+  .ispace-home .ispace-quote{
+    padding:105px 5vw 70px!important;
+  }
+
+  .ispace-home .capabilities-grid,
+  .ispace-home .india-exports__grid,
+  .ispace-home .logistics-flow,
+  .ispace-home .quote-form{
+    grid-template-columns:1fr!important;
+  }
+
+  .ispace-home .capabilities-header__layout{
+    grid-template-columns:1fr!important;
+    gap:25px!important;
+  }
+
+  .ispace-home .capabilities-header h2,
+  .ispace-home .ispace-logistics__heading h2,
+  .ispace-home .india-exports__heading h2,
+  .ispace-home .ispace-quote__heading h2{
+    font-size:clamp(3.2rem,15vw,5.3rem)!important;
+  }
+
+  .ispace-home .capability-card,
+  .ispace-home .india-export-card{
+    min-height:390px!important;
+  }
+
+  .ispace-home .logistics-flow article{
+    min-height:215px!important;
+  }
+
+  .ispace-home .logistics-flow__line{
+    display:none!important;
+  }
+
+  .ispace-home .ispace-reach__world{
+    width:115vw!important;
+    height:115vw!important;
+  }
+
+  .ispace-home .ispace-reach__content{
+    margin-top:70px!important;
+  }
+
+  .ispace-home .reach-locations{
+    flex-wrap:wrap!important;
+    margin-top:55px!important;
+  }
+
+  .ispace-home .quote-form label:nth-child(4){
+    grid-column:auto!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .ispace-home .capability-card__orb,
+  .ispace-home .india-export-card__ring,
+  .ispace-home .reach-ring,
+  .ispace-home .logistics-flow__line span{
+    animation:none!important;
+  }
+}
