@@ -1,0 +1,307 @@
+/* =========================================================
+   iSPACE — POLISH / STABILITY / B2B CINEMATIC PASS
+   ========================================================= */
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  background: #f7f6f3;
+}
+
+body {
+  overflow-x: hidden;
+  background: #f7f6f3;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.ispace-home {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+}
+
+.ispace-home > * {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.ispace-about {
+  position: relative;
+  min-height: 100vh;
+  padding: 150px 6vw 120px;
+  overflow: hidden;
+  color: #171329;
+  background:
+    radial-gradient(
+      circle at 82% 22%,
+      rgba(109, 53, 232, 0.09),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #ffffff 0%, #f7f5fa 55%, #eeeaf4 100%);
+}
+
+.ispace-about__grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.7;
+  background-image:
+    linear-gradient(rgba(39, 27, 66, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(39, 27, 66, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 90%);
+}
+
+.ispace-about::after {
+  content: "02";
+  position: absolute;
+  right: -1vw;
+  bottom: -5vw;
+  color: rgba(109, 53, 232, 0.035);
+  font-size: clamp(13rem, 30vw, 30rem);
+  font-weight: 700;
+  letter-spacing: -0.1em;
+  line-height: 0.7;
+  pointer-events: none;
+}
+
+.ispace-about__container {
+  position: relative;
+  z-index: 2;
+}
+
+.ispace-about__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 90px;
+  align-items: end;
+  margin-top: 55px;
+}
+
+.ispace-about__heading h2 {
+  max-width: 900px;
+  margin: 0;
+  color: #171329;
+  font-size: clamp(4rem, 8vw, 9rem);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.085em;
+}
+
+.ispace-about__heading h2 em {
+  color: #7450b7;
+  font-style: normal;
+}
+
+.ispace-about__copy {
+  max-width: 500px;
+}
+
+.ispace-about__copy p {
+  margin: 0 0 28px;
+  color: rgba(23, 19, 41, 0.55);
+  font-size: 0.82rem;
+  line-height: 1.9;
+}
+
+.ispace-about__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 48px;
+}
+
+.ispace-about__meta span {
+  padding: 12px 15px;
+  border: 1px solid rgba(39, 27, 66, 0.1);
+  background: rgba(255, 255, 255, 0.58);
+  color: rgba(23, 19, 41, 0.5);
+  font-size: 0.48rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  backdrop-filter: blur(14px);
+}
+
+/* =========================================================
+   REVEAL SYSTEM
+   ========================================================= */
+
+.ispace-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  will-change: transform, opacity;
+}
+
+.ispace-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ispace-line-reveal {
+  overflow: hidden;
+}
+
+.ispace-line-reveal > * {
+  transform: translateY(105%);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ispace-line-reveal.is-visible > * {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   B2B WORLD NETWORK
+   ========================================================= */
+
+.ispace-reach__world {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ispace-reach .reach-ring,
+.ispace-reach .reach-ring--two,
+.ispace-reach .reach-ring--three {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.ispace-reach .reach-ring {
+  transform: rotate(-18deg) scaleY(0.38);
+}
+
+.ispace-reach .reach-ring--two {
+  transform: rotate(30deg) scaleY(0.3);
+}
+
+.ispace-reach .reach-ring--three {
+  transform: rotate(70deg) scaleY(0.24);
+}
+
+.ispace-reach__world::before {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  border: 1px solid rgba(109, 53, 232, 0.08);
+  border-radius: 50%;
+}
+
+.ispace-reach__world::after {
+  content: "";
+  position: absolute;
+  inset: 25%;
+  border: 1px dashed rgba(200, 169, 106, 0.12);
+  border-radius: 50%;
+}
+
+/* =========================================================
+   LOADING STABILITY
+   ========================================================= */
+
+.ispace-home {
+  opacity: 1;
+}
+
+.ispace-home.ispace-page-ready {
+  opacity: 1;
+}
+
+body.ispace-loading {
+  overflow: hidden;
+  background: #ffffff;
+}
+
+body.ispace-ready {
+  background: #f7f6f3;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .ispace-about {
+    min-height: auto;
+    padding: 110px 5vw 80px;
+  }
+
+  .ispace-about__layout {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    margin-top: 45px;
+  }
+
+  .ispace-about__heading h2 {
+    font-size: clamp(3.3rem, 15vw, 5.3rem);
+    line-height: 0.84;
+  }
+
+  .ispace-about__copy p {
+    font-size: 0.76rem;
+  }
+
+  .ispace-about__meta {
+    margin-top: 35px;
+  }
+
+  .ispace-reach__world {
+    width: 100vw !important;
+    height: 100vw !important;
+    left: 50% !important;
+    top: 47% !important;
+  }
+
+  .ispace-reach .reach-ring {
+    inset: 14% !important;
+    transform: rotate(-18deg) scaleY(0.38) !important;
+  }
+
+  .ispace-reach .reach-ring--two {
+    inset: 25% !important;
+    transform: rotate(30deg) scaleY(0.3) !important;
+  }
+
+  .ispace-reach .reach-ring--three {
+    inset: 36% !important;
+    transform: rotate(70deg) scaleY(0.24) !important;
+  }
+
+  .ispace-reach .reach-point {
+    width: 8px !important;
+    height: 8px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ispace-reveal,
+  .ispace-line-reveal > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .ispace-reach .reach-ring,
+  .ispace-reach .reach-ring--two,
+  .ispace-reach .reach-ring--three {
+    animation: none !important;
+  }
+}

@@ -5,41 +5,34 @@
   overflow: hidden;
   display: grid;
   place-items: center;
-  background: #ffffff;
+  background: #fff;
   isolation: isolate;
   perspective: 1100px;
 }
 
 .ispace-loader__brand {
   position: relative;
-  z-index: 3;
-
+  z-index: 5;
   display: flex;
   align-items: center;
   gap: 18px;
-
   color: #17132d;
-
   transform-style: preserve-3d;
 }
 
 .ispace-loader__mark-wrap {
   width: 78px;
   height: 78px;
-
   transform-style: preserve-3d;
-
   filter:
-    drop-shadow(0 7px 8px rgba(33, 20, 76, 0.08))
-    drop-shadow(0 18px 25px rgba(33, 20, 76, 0.08));
+    drop-shadow(0 8px 12px rgba(33, 20, 76, .08))
+    drop-shadow(0 20px 30px rgba(33, 20, 76, .07));
 }
 
 .ispace-loader__mark {
   width: 100%;
   height: 100%;
-
   overflow: visible;
-
   transform-style: preserve-3d;
 }
 
@@ -47,7 +40,6 @@
   fill: none;
   stroke: url(#ispacePurple);
   stroke-width: 2;
-
   vector-effect: non-scaling-stroke;
 }
 
@@ -56,38 +48,33 @@
 }
 
 .mark-inner {
-  stroke-width: 1.1;
-  opacity: 0.5;
+  stroke-width: 1;
+  opacity: .4;
 }
 
 .mark-cross {
   stroke-width: 1;
-  opacity: 0.34;
+  opacity: .22;
 }
 
 .mark-diamond {
   stroke: url(#ispaceGold);
-  stroke-width: 2.6;
+  stroke-width: 2.5;
 }
 
 .mark-diamond-small {
   stroke: url(#ispacePurple);
   stroke-width: 1;
-  opacity: 0.55;
+  opacity: .45;
 }
 
 .mark-core {
   fill: #d2a52b;
-
-  filter:
-    drop-shadow(0 0 5px rgba(210, 165, 43, 0.45))
-    drop-shadow(0 3px 4px rgba(74, 48, 0, 0.2));
+  filter: drop-shadow(0 0 7px rgba(210,165,43,.38));
 }
 
 .mark-highlight {
-  fill: rgba(255, 255, 255, 0.9);
-
-  filter: blur(0.4px);
+  fill: rgba(255,255,255,.95);
 }
 
 .ispace-loader__wordmark {
@@ -103,14 +90,9 @@
   font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 600;
   line-height: 1;
-
   color: #17132d;
 
   transform-style: preserve-3d;
-
-  text-shadow:
-    0 1px 0 #ffffff,
-    0 4px 12px rgba(25, 16, 59, 0.08);
 }
 
 .word-letter {
@@ -134,13 +116,12 @@
   background:
     radial-gradient(
       circle,
-      rgba(109, 53, 232, 0.15) 0%,
-      rgba(109, 53, 232, 0.055) 34%,
+      rgba(109,53,232,.11),
+      rgba(109,53,232,.035) 38%,
       transparent 70%
     );
 
-  filter: blur(3px);
-
+  filter: blur(4px);
   pointer-events: none;
 }
 
@@ -149,13 +130,12 @@
   z-index: 2;
 
   width: 150px;
-  height: 24px;
+  height: 22px;
 
   border-radius: 50%;
 
-  background: rgba(26, 17, 54, 0.22);
-
-  filter: blur(13px);
+  background: rgba(26,17,54,.15);
+  filter: blur(14px);
 
   transform: translateY(57px) rotateX(65deg);
 
@@ -175,26 +155,29 @@
     linear-gradient(
       90deg,
       transparent,
-      rgba(109, 53, 232, 0.07),
-      rgba(210, 165, 43, 0.12),
+      rgba(109,53,232,.045),
+      rgba(210,165,43,.075),
       transparent
     );
 
   transform: skewX(-18deg);
-
   pointer-events: none;
 }
+
+/*
+  IMPORTANT:
+  The stripes START OUTSIDE the viewport.
+  This prevents the purple/gold/white first-frame flash.
+*/
 
 .ispace-loader__curtain {
   position: absolute;
   inset: 0;
-
-  z-index: 10;
+  z-index: 20;
 
   display: flex;
 
   overflow: hidden;
-
   pointer-events: none;
 }
 
@@ -207,30 +190,41 @@
   will-change: transform;
 
   box-shadow:
-    inset -1px 0 rgba(255, 255, 255, 0.16),
-    0 0 24px rgba(20, 10, 60, 0.08);
+    inset -1px 0 rgba(255,255,255,.12),
+    0 0 20px rgba(20,10,60,.05);
+}
+
+/* Initial states BEFORE GSAP runs */
+.ispace-loader__stripe:nth-child(odd) {
+  transform: translateY(110%);
+}
+
+.ispace-loader__stripe:nth-child(even) {
+  transform: translateY(-110%);
 }
 
 .stripe-purple {
-  background: linear-gradient(
-    110deg,
-    #5525c7,
-    #6d35e8 50%,
-    #8155ed
-  );
+  background:
+    linear-gradient(
+      110deg,
+      #5525c7,
+      #6d35e8 50%,
+      #8155ed
+    );
 }
 
 .stripe-gold {
-  background: linear-gradient(
-    110deg,
-    #a77d18,
-    #d2a52b 50%,
-    #e5c253
-  );
+  background:
+    linear-gradient(
+      110deg,
+      #a77d18,
+      #d2a52b 50%,
+      #e5c253
+    );
 }
 
 .stripe-white {
-  background: #ffffff;
+  background: #fff;
 }
 
 @media (max-width: 600px) {
@@ -257,10 +251,14 @@
     height: 18px;
     transform: translateY(43px) rotateX(65deg);
   }
+
+  .ispace-loader__curtain {
+    display: flex;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ispace-loader {
-    display: none;
+  .ispace-loader__stripe {
+    transform: translateY(110%);
   }
 }
