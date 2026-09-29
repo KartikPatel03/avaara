@@ -1129,3 +1129,84 @@
   }
 }
 
+
+/* =========================================================
+   iSPACE PERFORMANCE / SCROLL STABILITY PATCH
+   Keeps the visual design but removes expensive repaint work.
+========================================================= */
+
+.ispace-home,
+.ispace-home * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ispace-home {
+  overflow-x: clip;
+  isolation: isolate;
+}
+
+/* Keep animated orbital elements on their own compositor layer */
+.ispace-home .reach-ring,
+.ispace-home .reach-ring--two,
+.ispace-home .reach-ring--three,
+.ispace-home .india-export-card__ring,
+.ispace-home .capability-card__orb {
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Prevent the orbiting rings from triggering expensive repaints */
+.ispace-home .reach-ring,
+.ispace-home .reach-ring--two,
+.ispace-home .reach-ring--three {
+  contain: layout paint;
+}
+
+/* Remove expensive backdrop blur from scrolling cards */
+.ispace-home .capability-card,
+.ispace-home .india-export-card,
+.ispace-home .reach-location,
+.ispace-home .quote-form {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Keep cards smooth without forcing browser to repaint shadows constantly */
+.ispace-home .capability-card,
+.ispace-home .india-export-card {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Prevent animation/compositing from leaking outside sections */
+.ispace-home .capabilities,
+.ispace-home .india-exports,
+.ispace-home .ispace-reach,
+.ispace-home .ispace-logistics,
+.ispace-home .ispace-quote {
+  overflow: clip !important;
+}
+
+/* Disable decorative continuous motion while the user is actively scrolling.
+   JS adds .ispace-user-scrolling to the page root. */
+.ispace-user-scrolling .ispace-home .reach-ring,
+.ispace-user-scrolling .ispace-home .reach-ring--two,
+.ispace-user-scrolling .ispace-home .reach-ring--three,
+.ispace-user-scrolling .ispace-home .india-export-card__ring,
+.ispace-user-scrolling .ispace-home .capability-card__orb {
+  animation-play-state: paused !important;
+}
+
+/* Respect reduced motion automatically */
+@media (prefers-reduced-motion: reduce) {
+  .ispace-home *,
+  .ispace-home *::before,
+  .ispace-home *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

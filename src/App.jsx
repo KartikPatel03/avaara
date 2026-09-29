@@ -692,6 +692,7 @@ function App() {
           "pointermove",
           handlePointer
         );
+
       };
     }, homeRef);
 

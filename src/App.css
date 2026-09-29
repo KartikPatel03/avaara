@@ -1694,3 +1694,62 @@
 html {
   scroll-behavior: smooth;
 }
+/* =========================================================
+   iSPACE — SCROLL / COMPOSITING STABILITY PATCH
+========================================================= */
+
+.ispace-home,
+.ispace-home * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ispace-home {
+  overflow-x: clip;
+}
+
+.network-visual,
+.network-visual__sphere,
+.sphere-ring,
+.network-visual__glow,
+.network-node {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.network-visual__sphere,
+.sphere-ring,
+.network-node {
+  will-change: transform;
+}
+
+.network-visual__glow {
+  will-change: opacity, transform;
+}
+
+/* Prevent expensive blur layers from fighting the GPU while scrolling */
+@media (hover: none), (pointer: coarse) {
+  .network-node {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.92);
+  }
+}
+
+/* Keep animated decorative layers from creating paint overflow */
+.sphere-ring,
+.network-route,
+.network-visual__glow {
+  contain: paint;
+}
+
+/* Stop horizontal compositor overflow / white strip artifacts */
+.ispace-home section {
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sphere-ring {
+    transform-style: preserve-3d;
+  }
+}
+
